@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -48,16 +49,26 @@ public class ImplicitManagerActivity extends AppCompatActivity {
     }
 
     public void onPhoneDial(View view) {
+        Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+        startActivity(dialIntent);
     }
 
     public void onWebsiteOpen(View view) {
         String myInput = numOrUrlInp.getText().toString();
         if(myInput.isEmpty()) return;
+        if (!myInput.startsWith("http://") && !myInput.startsWith("https://"))
+            myInput = "http://" + myInput;
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myInput));
+        startActivity(browserIntent);
     }
 
     public void onAppManage(View view) {
+        Intent appManagerIntent = new Intent(Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
+        startActivity(appManagerIntent);
     }
 
     public void onWifiManage(View view) {
+        Intent wifiManager = new Intent(Settings.ACTION_WIFI_SETTINGS);
+        startActivity(wifiManager);
     }
 }
