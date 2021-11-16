@@ -10,6 +10,8 @@ import android.widget.Toast;
 import com.example.lists.adapters.ContactsAdapter;
 import com.example.lists.listeners.RecyclerTapListener;
 import com.example.lists.models.Contact;
+import com.example.lists.models.Movie;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +19,10 @@ public class MainActivity extends AppCompatActivity {
 //    String[] daysList = {"Monday", "Tuesday", "Wednesday"};
 //    ListView days_list_view;
 
-    List<Contact> contactList = new ArrayList<Contact>();
+    List<Contact> contactList = new ArrayList<>();
     RecyclerView contactsRecyclerView;
+
+    List<Movie> movieList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,5 +73,18 @@ public class MainActivity extends AppCompatActivity {
         // -- Create & set the adapter
         ContactsAdapter contactsAdapter = new ContactsAdapter(contactList);
         contactsRecyclerView.setAdapter(contactsAdapter);
+
+
+        // ----------------------- Custom Movie Adapter ----------------------- //
+        Movie movie = new Movie("Mad Max: Fury Road", R.drawable.placeholder);
+        movieList.add(movie);
+        Movie movie2 = new Movie("The Martian", R.drawable.placeholder);
+        movieList.add(movie2);
+        Movie movie3 = new Movie("Shaun the Sheep", R.drawable.placeholder);
+        movieList.add(movie3);
+        Movie movie4 = new Movie("Star Wars", R.drawable.placeholder);
+        movieList.add(movie4);
+        Movie movie5 = new Movie("Inside Out", R.drawable.placeholder);
+        movieList.add(movie5);
     }
 }

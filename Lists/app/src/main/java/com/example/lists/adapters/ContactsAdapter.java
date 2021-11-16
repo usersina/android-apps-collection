@@ -20,18 +20,6 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
         this.contactList = contactList;
     }
 
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name;
-        public TextView phone;
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            name = itemView.findViewById(R.id.name);
-            phone = itemView.findViewById(R.id.phone);
-        }
-    }
-
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,5 +37,17 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
     @Override
     public int getItemCount() {
         return contactList.size();
+    }
+
+    // ----- Custom
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView name;
+        public TextView phone;
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            name = itemView.findViewById(R.id.name);
+            phone = itemView.findViewById(R.id.phone);
+        }
     }
 }
