@@ -6,12 +6,17 @@
     android:paddingVertical="6dp"
     android:paddingHorizontal="10dp"
     android:orientation="horizontal" >
-    <ImageView
+<!--    <ImageView-->
+<!--        android:id="@+id/image"-->
+<!--        android:layout_width="75dp"-->
+<!--        android:layout_height="75dp"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:src="@drawable/placeholder"/>-->
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/placeholder"/>
+        android:src="@drawable/placeholder" />
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
