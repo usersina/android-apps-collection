@@ -32,7 +32,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Movie movie = movieList.get(position);
         holder.text_view.setText(movie.getTitle());
-        holder.image_view.setImageDrawable(movie.getImgUrl());
+        holder.image_view.setImageResource(movie.getImgUrl());
     }
 
     @Override

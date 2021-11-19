@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.lists.adapters.ContactsAdapter;
+import com.example.lists.adapters.MovieAdapter;
 import com.example.lists.listeners.RecyclerTapListener;
 import com.example.lists.models.Contact;
 import com.example.lists.models.Movie;
@@ -19,10 +20,11 @@ public class MainActivity extends AppCompatActivity {
 //    String[] daysList = {"Monday", "Tuesday", "Wednesday"};
 //    ListView days_list_view;
 
-    List<Contact> contactList = new ArrayList<>();
-    RecyclerView contactsRecyclerView;
+//    List<Contact> contactList = new ArrayList<>();
+//    RecyclerView contactsRecyclerView;
 
     List<Movie> movieList = new ArrayList<>();
+    RecyclerView moviesRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,38 +43,38 @@ public class MainActivity extends AppCompatActivity {
 
         // ----------------------- Custom Adapter ----------------------- //
         // -- Bind & fill list
-        contactsRecyclerView = findViewById(R.id.contacts_rv);
-        contactList.add(new Contact("Mario Bros", "21 342 123"));
-        contactList.add(new Contact("Luigi Bros", "52 345 678"));
+//        contactsRecyclerView = findViewById(R.id.contacts_rv);
+//        contactList.add(new Contact("Mario Bros", "21 342 123"));
+//        contactList.add(new Contact("Luigi Bros", "52 345 678"));
 
         // -- Scroll manager
-        LinearLayoutManager contactsLayoutManager = new LinearLayoutManager(
-                getApplicationContext(),
-                LinearLayoutManager.VERTICAL,
-                false
-        );
-        contactsRecyclerView.setLayoutManager(contactsLayoutManager);
+//        LinearLayoutManager contactsLayoutManager = new LinearLayoutManager(
+//                getApplicationContext(),
+//                LinearLayoutManager.VERTICAL,
+//                false
+//        );
+//        contactsRecyclerView.setLayoutManager(contactsLayoutManager);
 
         // -- Add an onTap listener
-        contactsRecyclerView.addOnItemTouchListener(
-                new RecyclerTapListener(
-                        getApplicationContext(),
-                        contactsRecyclerView,
-                        new RecyclerTapListener.ClickListener() {
-                            @Override
-                            public void onTap(View view, int position) {
-                                Contact contact = contactList.get(position);
-                                Toast.makeText(getApplicationContext(), contact.getName(), Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onLongTap(View view, int position) {}
-                        })
-        );
+//        contactsRecyclerView.addOnItemTouchListener(
+//                new RecyclerTapListener(
+//                        getApplicationContext(),
+//                        contactsRecyclerView,
+//                        new RecyclerTapListener.ClickListener() {
+//                            @Override
+//                            public void onTap(View view, int position) {
+//                                Contact contact = contactList.get(position);
+//                                Toast.makeText(getApplicationContext(), contact.getName(), Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                            @Override
+//                            public void onLongTap(View view, int position) {}
+//                        })
+//        );
 
         // -- Create & set the adapter
-        ContactsAdapter contactsAdapter = new ContactsAdapter(contactList);
-        contactsRecyclerView.setAdapter(contactsAdapter);
+//        ContactsAdapter contactsAdapter = new ContactsAdapter(contactList);
+//        contactsRecyclerView.setAdapter(contactsAdapter);
 
 
         // ----------------------- Custom Movie Adapter ----------------------- //
@@ -86,5 +88,17 @@ public class MainActivity extends AppCompatActivity {
         movieList.add(movie4);
         Movie movie5 = new Movie("Inside Out", R.drawable.placeholder);
         movieList.add(movie5);
+
+        moviesRecyclerView = findViewById(R.id.movies_rv);
+
+        LinearLayoutManager moviesLayoutManager = new LinearLayoutManager(
+            getApplicationContext(),
+            LinearLayoutManager.VERTICAL,
+            false
+        );
+        moviesRecyclerView.setLayoutManager(moviesLayoutManager);
+
+        MovieAdapter movieAdapter = new MovieAdapter(movieList);
+        moviesRecyclerView.setAdapter(movieAdapter);
     }
 }
