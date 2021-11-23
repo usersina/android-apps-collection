@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main3.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/contact.xml" value="0.18998978549540346" />
         <entry key="app/src/main/res/menu/context_menu1.xml" value="0.18947906026557712" />
         <entry key="app/src/main/res/menu/context_menu2.xml" value="0.18947906026557712" />
         <entry key="app/src/main/res/menu/menu1.xml" value="0.19444444444444445" />

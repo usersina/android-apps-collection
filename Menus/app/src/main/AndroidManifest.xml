@@ -10,14 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Menus">
         <activity
-            android:name=".MainActivity2"
-            android:label="Contextual Menus"
+            android:name=".MainActivity3"
+            android:label="Context Menu Contacts"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true"
+            android:label="Context Menus">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".IntentActivity"
@@ -25,13 +36,15 @@
             android:label="Second Activity" />
         <activity
             android:name=".MainActivity"
-            android:label="Action Menus"
-            android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            android:exported="true"
+            android:label="Action Menus">
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 
