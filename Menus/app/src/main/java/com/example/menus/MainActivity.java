@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.activity_item:
-                startActivity(new Intent(getApplicationContext(), MainActivity2.class));
+                startActivity(new Intent(getApplicationContext(), IntentActivity.class));
                 break;
             case R.id.settings_item:
                 startActivity(new Intent(Settings.ACTION_SETTINGS));
