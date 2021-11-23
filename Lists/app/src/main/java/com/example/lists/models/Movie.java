@@ -5,8 +5,12 @@ public class Movie {
     int imgUrl;
 
     public Movie(String title, int imgUrl) {
-        this.title = title;
+        extracted(title);
         this.imgUrl = imgUrl;
+    }
+
+    private void extracted(String title) {
+        this.title = title;
     }
 
     public String getTitle() {
