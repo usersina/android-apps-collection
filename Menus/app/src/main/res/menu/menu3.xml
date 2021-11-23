@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Activity 2" />
-    <item android:title="Settings">
+    <item android:id="@+id/activity_item" android:title="Activity 2" />
+    <item android:title="Options">
         <menu>
-            <item android:title="Parameters" />
-            <item android:title="Languages" />
+            <item android:id="@+id/settings_item" android:title="Settings" />
+            <item android:id="@+id/languages_item" android:title="Languages" />
         </menu>
     </item>
-    <item android:title="Exit" />
+    <item android:id="@+id/exit_item" android:title="Exit" />
 </menu>

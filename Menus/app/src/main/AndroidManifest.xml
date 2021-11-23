@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Menus">
         <activity
+            android:name=".MainActivity2"
+            android:label="Second Activity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
