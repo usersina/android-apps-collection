@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("MainActivity", "Adding: " + product.toString());
             productDAO.insert(product);
             this.clearInputs();
+            this.onShow(view);
         } catch (Exception exception) {
             exception.printStackTrace();
             System.err.println("Could not insert product!");
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             Integer id = Integer.valueOf(idEt.getText().toString());
             productDAO.delete(id);
             this.clearInputs();
+            this.onShow(view);
         } catch (Exception exception) {
             exception.printStackTrace();
             System.err.println("Could not delete product!");
@@ -71,11 +73,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             Log.d("MainActivity", "Showing");
             List<Product> myList = productDAO.getAll();
-//            for (item: myList) {
-//                Log.d("MainActivity", "Item");
-//
-//            }
             Log.d("MainActivity", myList.toString());
+            productsTv.setText(myList.toString());
         } catch (Exception exception) {
             exception.printStackTrace();
             System.err.println("Could not show products!");

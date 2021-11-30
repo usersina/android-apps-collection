@@ -64,7 +64,7 @@
             android:id="@+id/products_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Products"
+            android:text="Products will show here!"
             android:paddingVertical="25dp"
             android:textSize="18sp"
             android:gravity="center"
