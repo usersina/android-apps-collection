@@ -9,7 +9,9 @@ public class Product {
 
     public Product(Integer id, String name, Integer quantity) {
         super();
-        // TODO:
+        this.id = id;
+        this.name = name;
+        this.quantiy = quantity;
     }
 
     public int getId(){
