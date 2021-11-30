@@ -1,4 +1,34 @@
 package com.example.sqlite.models;
 
 public class Product {
+    Integer id;
+    String name;
+    Integer quantiy;
+
+    public Product() { }
+
+    public Product(Integer id, String name, Integer quantity) {
+        super();
+        // TODO:
+    }
+
+    public int getId(){
+        return this.id;
+    };
+    public String getName() {
+        return this.name;
+    };
+    public int getQuantity() {
+        return this.quantiy;
+    };
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setName() {
+        this.name = name;
+    }
+    public void setQuantiy() {
+        this.quantiy = quantiy;
+    }
 }
