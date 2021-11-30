@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sqlite">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:label="SQLite Manager"
-            android:exported="true">
+            android:exported="true"
+            android:label="SQLite Manager">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
