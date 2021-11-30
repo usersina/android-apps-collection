@@ -8,11 +8,14 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.sqlite.models.Product;
 import com.example.sqlite.utils.DBHandler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductDAO {
     public static final String CREATE_TABLE = "CREATE TABLE products (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER);";
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS product;";
 
-    private DBHandler dbHandler;
+    private final DBHandler dbHandler;
 
     public ProductDAO(Context context) {
         dbHandler = new DBHandler(context, null);
@@ -29,16 +32,31 @@ public class ProductDAO {
 
         long lastInsertId = db.insert("products", null, values);
         db.close();
-
         return lastInsertId;
     }
 
     // read
     // TODO: Update return type to a list of products
-    public Cursor getAll() {
+    public List<Product> getAll() {
+        List<Product> result = new ArrayList<>();
         SQLiteDatabase db = dbHandler.getWritableDatabase();
         String req = "SELECT * FROM products";
-        return db.rawQuery(req, null);
+
+        Cursor cursor = db.rawQuery(req, null);
+        if (cursor.getCount() == 0) return result;
+
+        while (cursor.moveToNext()) {
+            result.add(
+                new Product(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getInt(2)
+                )
+            );
+        }
+        cursor.close();
+        db.close();
+        return result;
     }
 
     // update
