@@ -59,7 +59,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Delete"
-            android:onClick="delete_student"/>
+            android:onClick="onDelete"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,7 +76,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Modify"
-            android:onClick="modify_student"/>
+            android:onClick="onUpdate"/>
     </LinearLayout>
     <EditText
         android:layout_width="match_parent"

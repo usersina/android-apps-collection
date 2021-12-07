@@ -18,7 +18,7 @@ import com.example.sqlite.models.Student;
 import java.util.List;
 
 public class MainActivity2 extends AppCompatActivity {
-    EditText firstnameEt, lastnameEt, resultEt;
+    EditText firstnameEt, lastnameEt, controlEt;
     RadioGroup classroomRg;
     StudentDAO studentDAO;
 
@@ -30,7 +30,7 @@ public class MainActivity2 extends AppCompatActivity {
         firstnameEt = findViewById(R.id.firstname_et);
         lastnameEt = findViewById(R.id.lastname_et);
         classroomRg = findViewById(R.id.classroom_rg);
-        resultEt = findViewById(R.id.result_et);
+        controlEt = findViewById(R.id.result_et);
 
         studentDAO = new StudentDAO(getApplicationContext());
     }
@@ -63,15 +63,55 @@ public class MainActivity2 extends AppCompatActivity {
         }
     }
 
+    public void onDelete(View view) {
+        try {
+            Log.d("MainActivity", "Deleting");
+            Integer id = Integer.valueOf(controlEt.getText().toString());
+            studentDAO.delete(id);
+            this.clearInputs();
+            this.onShow(view);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            System.err.println("Could not delete product!");
+        }
+    }
+
     public void onShow(View view) {
         try {
             Log.d("MainActivity", "Showing");
             List<Student> myList = studentDAO.getAll();
-            Log.d("MainActivity", myList.toString());
-            resultEt.setText(myList.toString());
+            controlEt.setText(myList.toString());
         } catch (Exception exception) {
             exception.printStackTrace();
             System.err.println("Could not show products!");
         }
     }
+
+    public void onUpdate(View view) {
+        try {
+            Integer id = Integer.valueOf(controlEt.getText().toString());
+            String firstname = firstnameEt.getText().toString();
+            String lastname = lastnameEt.getText().toString();
+            int selectedId = classroomRg.getCheckedRadioButtonId();
+            if(selectedId == -1 || firstnameEt.getText().toString().isEmpty() || lastnameEt.getText().toString().isEmpty()) return;
+
+            RadioButton selectedClassroomRb = findViewById(selectedId);
+            String classroom = selectedClassroomRb.getText().toString();
+
+            Student student = new Student(id, firstname, lastname, classroom);
+            Log.d("MainActivity2", "onUpdate: " + student);
+            studentDAO.update(student);
+            this.clearInputs();
+            this.onShow(view);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            System.err.println("Could not insert product!");
+        }
+    }
+
+    // -- Additional
+    public void onSearch(View view) {
+
+    }
+
 }
