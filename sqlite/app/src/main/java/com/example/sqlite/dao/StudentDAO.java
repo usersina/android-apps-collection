@@ -59,6 +59,29 @@ public class StudentDAO {
         return result;
     }
 
+    public List<Student> getAll(String firstname, String lastname) {
+        List<Student> result = new ArrayList<>();
+        SQLiteDatabase db = dbHandler.getWritableDatabase();
+        String req = "SELECT * FROM students WHERE firstname = '" + firstname + "' AND lastname = '" + lastname + "'";
+
+        Cursor cursor = db.rawQuery(req, null);
+        if (cursor.getCount() == 0) return result;
+
+        while (cursor.moveToNext()) {
+            result.add(
+                new Student(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3)
+                )
+            );
+        }
+        cursor.close();
+        db.close();
+        return result;
+    };
+
     // update
     public void update(Student student) {
         SQLiteDatabase db = dbHandler.getWritableDatabase();

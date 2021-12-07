@@ -70,7 +70,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Search"
-            android:onClick="search_student"/>
+            android:onClick="onSearch"/>
 
         <Button
             android:layout_width="100dp"

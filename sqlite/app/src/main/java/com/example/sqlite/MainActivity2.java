@@ -111,7 +111,18 @@ public class MainActivity2 extends AppCompatActivity {
 
     // -- Additional
     public void onSearch(View view) {
+        try {
+            String firstname = firstnameEt.getText().toString();
+            String lastname = lastnameEt.getText().toString();
+            if(firstnameEt.getText().toString().isEmpty() || lastnameEt.getText().toString().isEmpty()) return;
 
+            Log.d("MainActivity", "Showing filtered");
+            List<Student> myList = studentDAO.getAll(firstname, lastname);
+            controlEt.setText(myList.toString());
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            System.err.println("Could not show products!");
+        }
     }
 
 }
