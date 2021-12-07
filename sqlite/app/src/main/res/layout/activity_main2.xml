@@ -7,34 +7,35 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/prenom"
+        android:id="@+id/firstname_et"
         android:hint="First Name"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nom"     android:hint="Second Name"/>
+        android:id="@+id/lastname_et"
+        android:hint="Last Name"/>
     <RadioGroup
+        android:id="@+id/classroom_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TI"
-            android:id="@+id/radio1"
+            android:id="@+id/ti_rb"
             android:textSize="10dp"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DSI"
-            android:id="@+id/radio2"
+            android:id="@+id/dsi_rb"
             android:textSize="10dp"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="RSI"
-            android:id="@+id/radio3"
+            android:id="@+id/rsi_rb"
             android:textSize="10dp"/>
 
     </RadioGroup>
@@ -47,20 +48,17 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btn1"
-            android:onClick="add_student"
+            android:onClick="onAdd"
             android:text="Add" />
         <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Show"
-            android:id="@+id/btn2"
-            android:onClick="show_all"/>
+            android:onClick="onShow"/>
         <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Delete"
-            android:id="@+id/btn3"
             android:onClick="delete_student"/>
     </LinearLayout>
     <LinearLayout
@@ -72,14 +70,12 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Search"
-            android:id="@+id/btn4"
             android:onClick="search_student"/>
 
         <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Modify"
-            android:id="@+id/btn5"
             android:onClick="modify_student"/>
     </LinearLayout>
     <EditText
@@ -87,6 +83,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:id="@+id/edit"
-        android:text="Null"/>
+        android:id="@+id/result_et"
+        android:text=""/>
 </LinearLayout>

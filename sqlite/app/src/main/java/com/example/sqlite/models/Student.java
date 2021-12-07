@@ -8,6 +8,12 @@ public class Student {
 
     public Student(){}
 
+    public Student(String firstname, String lastname, String classroom) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.classroom = classroom;
+    }
+
     public Student(Integer id, String firstname, String lastname, String classroom) {
         this.id = id;
         this.firstname = firstname;

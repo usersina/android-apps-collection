@@ -36,7 +36,6 @@ public class ProductDAO {
     }
 
     // read
-    // TODO: Update return type to a list of products
     public List<Product> getAll() {
         List<Product> result = new ArrayList<>();
         SQLiteDatabase db = dbHandler.getWritableDatabase();
