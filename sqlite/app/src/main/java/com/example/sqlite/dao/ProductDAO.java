@@ -13,12 +13,12 @@ import java.util.List;
 
 public class ProductDAO {
     public static final String CREATE_TABLE = "CREATE TABLE products (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER);";
-    public static final String DROP_TABLE = "DROP TABLE IF EXISTS product;";
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS products;";
 
     private final DBHandler dbHandler;
 
     public ProductDAO(Context context) {
-        dbHandler = new DBHandler(context, null);
+        dbHandler = new DBHandler("students", 1, context, null);
     }
 
     // create

@@ -8,11 +8,8 @@ import com.example.sqlite.dao.ProductDAO;
 
 public class DBHandler extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "products";
-
-    public DBHandler(Context context, SQLiteDatabase.CursorFactory factory) {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+    public DBHandler(String dbname, int version, Context context, SQLiteDatabase.CursorFactory factory) {
+        super(context, dbname, factory, version);
     }
 
     @Override
