@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-    android:layout_margin="10dp">
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,20 +22,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fridge"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/price_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Costs: 250"
-                android:textSize="18sp"/>
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!-- The control buttons -->
@@ -47,13 +50,17 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background=""
-                android:paddingRight="20dp"
+                android:background="@drawable/ripple_effect"
+                android:clickable="true"
                 android:src="@drawable/ic_baseline_edit_24"/>
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="match_parent" />
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background=""
+                android:background="@drawable/ripple_effect"
+                android:clickable="true"
                 android:src="@drawable/ic_baseline_delete_24"/>
         </LinearLayout>
     </LinearLayout>

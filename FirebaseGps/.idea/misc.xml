@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/GitHub/android-apps-collection/FirebaseGps/app/src/main/res/drawable/ripple_effect.xml" value="0.2125" />
         <entry key="..\:/Documents/GitHub/android-apps-collection/FirebaseGps/app/src/main/res/layout/activity_gps.xml" value="0.14673913043478262" />
         <entry key="..\:/Documents/GitHub/android-apps-collection/FirebaseGps/app/src/main/res/layout/activity_main.xml" value="0.14673913043478262" />
-        <entry key="..\:/Documents/GitHub/android-apps-collection/FirebaseGps/app/src/main/res/layout/product_item.xml" value="0.16869300911854104" />
+        <entry key="..\:/Documents/GitHub/android-apps-collection/FirebaseGps/app/src/main/res/layout/product_item.xml" value="0.33" />
         <entry key="..\:/Documents/GitHub/android-apps-collection/FirebaseGps/app/src/main/res/menu/my_menu.xml" value="0.22604166666666667" />
       </map>
     </option>
