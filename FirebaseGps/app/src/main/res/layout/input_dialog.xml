@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
-        android:backgroundTint="@android:color/holo_purple" />
+        android:backgroundTint="@android:color/holo_purple"
+        android:textCursorDrawable="@null" />
     <Space
         android:layout_width="match_parent"
         android:layout_height="5dp" />
@@ -24,7 +25,8 @@
         android:layout_height="wrap_content"
         android:hint="Price"
         android:inputType="numberDecimal"
-        android:backgroundTint="@android:color/holo_purple" />
+        android:backgroundTint="@android:color/holo_purple"
+        android:textCursorDrawable="@null" />
     <Space
         android:layout_width="match_parent"
         android:layout_height="10dp" />

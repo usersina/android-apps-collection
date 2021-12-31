@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.gps_item:
-                startActivity(new Intent(getApplicationContext(), GPSActivity.class));
+                startActivity(new Intent(getApplicationContext(), MapsActivity.class));
                 break;
             case R.id.wifi_item:
                 startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
@@ -148,14 +148,14 @@ public class MainActivity extends AppCompatActivity {
 //                        Log.w(TAG, "Error getting documents!", task.getException());
 //                    }
 //                });
-                // -- A progressive data fetch
+                // -- A streaming data
                 firestoreDBService.productCollectionReference().addSnapshotListener((querySnapshot, e) -> {
                     if (querySnapshot.isEmpty()) return;
                     productList.clear();
                     productList.addAll(firestoreDBService.getProductList(querySnapshot));
                     productAdapter.notifyDataSetChanged();
                 });
-            // -- Authenticated failed, simply log the error stack
+            // -- Authentication failed, simply log the error stack
             } else {
                 Log.w(TAG, "Error signing in!", result.getException());
             }

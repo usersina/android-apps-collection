@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">FirebaseGps</string>
+    <string name="app_name">Products Manager</string>
+    <string name="title_activity_maps">GPS Activity</string>
 </resources>
