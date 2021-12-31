@@ -42,6 +42,13 @@ public class FirestoreDBService {
         db.collection("products").add(dataToSave);
     }
 
+    public void updateProduct(String id, String name, double price) {
+        Map<String, Object> dataToSave = new HashMap<String, Object>();
+        dataToSave.put("name", name);
+        dataToSave.put("price", price);
+        db.collection("products").document(id).set(dataToSave);
+    }
+
     public void deleteProduct(String id) {
         db.collection("products").document(id).delete();
     }
