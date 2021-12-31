@@ -48,15 +48,17 @@
             android:layout_gravity="center_vertical"
             android:paddingRight="20dp">
             <ImageButton
+                android:id="@+id/edit_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ripple_effect"
                 android:clickable="true"
-                android:src="@drawable/ic_baseline_edit_24"/>
+                android:src="@drawable/ic_baseline_edit_24" />
             <Space
                 android:layout_width="15dp"
                 android:layout_height="match_parent" />
             <ImageButton
+                android:id="@+id/delete_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ripple_effect"

@@ -1,8 +1,11 @@
 package com.example.firebasegps.services;
 
+import android.util.Log;
+
 import com.example.firebasegps.models.Product;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -21,8 +24,13 @@ public class FirestoreDBService {
     public ArrayList<Product> getProductList(QuerySnapshot querySnapshot) {
         ArrayList<Product> myList = new ArrayList<>();
         for (QueryDocumentSnapshot document: querySnapshot) {
-            // myList.add(new Product(String.valueOf(document.getData().get("name")), Double.valueOf((Long) document.getData().get("price"))));
-            myList.add(document.toObject(Product.class));
+            Log.d("test", "setupFirebaseServices: " + document.getId());
+            // myList.add(document.toObject(Product.class)); // Does not consider the id
+            myList.add(new Product(
+                document.getId(),
+                String.valueOf(document.getData().get("name")),
+                Double.valueOf(document.getData().get("price").toString())
+            ));
         }
         return myList;
     };
@@ -32,5 +40,9 @@ public class FirestoreDBService {
         dataToSave.put("name", name);
         dataToSave.put("price", price);
         db.collection("products").add(dataToSave);
+    }
+
+    public void deleteProduct(String id) {
+        db.collection("products").document(id).delete();
     }
 }
