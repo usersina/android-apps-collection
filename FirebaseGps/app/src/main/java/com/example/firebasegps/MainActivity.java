@@ -3,12 +3,11 @@ package com.example.firebasegps;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.ContextMenu;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.products_item:
-                Log.d("MainActivityLog:", "Selecting products item!");
-                break;
             case R.id.gps_item:
-                Log.d("MainActivityLog:", "Selecting gps item!");
+                startActivity(new Intent(getApplicationContext(), GPSActivity.class));
+                break;
+            case R.id.wifi_item:
+                startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
                 break;
             case R.id.exit_item:
                 finish();

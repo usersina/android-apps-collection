@@ -10,9 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirebaseGps">
         <activity
+            android:name=".GPSActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="GPS"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:label="Products Manager"
-            android:exported="true">
+            android:exported="true"
+            android:label="Products Manager">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

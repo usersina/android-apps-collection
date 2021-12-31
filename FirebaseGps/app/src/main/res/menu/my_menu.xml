@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/products_item" android:title="Products" />
     <item android:id="@+id/gps_item" android:title="GPS" />
+    <item android:id="@+id/wifi_item" android:title="Wifi" />
     <item android:id="@+id/exit_item" android:title="Exit" />
 </menu>
