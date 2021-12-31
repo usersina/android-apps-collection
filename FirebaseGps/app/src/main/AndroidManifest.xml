@@ -11,6 +11,7 @@
         android:theme="@style/Theme.FirebaseGps">
         <activity
             android:name=".MainActivity"
+            android:label="Products Manager"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
