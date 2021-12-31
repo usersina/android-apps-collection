@@ -15,4 +15,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Add a product"
+        app:layout_constraintBottom_toBottomOf="@+id/products_rv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_baseline_add_24"
+        app:backgroundTint="@color/purple_500"
+        app:rippleColor="@color/purple_200"
+        app:tint="@color/white"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

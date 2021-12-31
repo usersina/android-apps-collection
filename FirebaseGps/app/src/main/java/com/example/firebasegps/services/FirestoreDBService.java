@@ -1,12 +1,15 @@
 package com.example.firebasegps.services;
 
 import com.example.firebasegps.models.Product;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FirestoreDBService {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -24,4 +27,10 @@ public class FirestoreDBService {
         return myList;
     };
 
+    public void addNewProduct(String name, double price) {
+        Map<String, Object> dataToSave = new HashMap<String, Object>();
+        dataToSave.put("name", name);
+        dataToSave.put("price", price);
+        db.collection("products").add(dataToSave);
+    }
 }
