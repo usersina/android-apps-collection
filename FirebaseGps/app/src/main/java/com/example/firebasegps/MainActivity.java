@@ -14,6 +14,8 @@ import android.view.MenuItem;
 
 import com.example.firebasegps.adapters.ProductAdapter;
 import com.example.firebasegps.models.Product;
+import com.example.firebasegps.services.FirebaseAuthService;
+import com.example.firebasegps.services.FirestoreDBService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -21,10 +23,12 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private static String TAG = "MyMainActivity";
+
+    private FirebaseAuthService firebaseAuthService;
+    private FirestoreDBService firestoreDBService;
 
     RecyclerView productRv;
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
     ProductAdapter productAdapter;
     ArrayList<Product> productList;
 
@@ -33,34 +37,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
-        mAuth.signInAnonymously();
-        // mAuth.signOut();
-
+        // -- Configure the recycler view
         productRv = findViewById(R.id.products_rv);
-//        productRv.setHasFixedSize(true);
-        productRv.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+        productRv.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+        // -- Configure the array adapter
         productList = new ArrayList<>();
         productAdapter = new ProductAdapter(getApplicationContext(), productList);
         productRv.setAdapter(productAdapter);
 
-        db = FirebaseFirestore.getInstance();
-        db.collection("products").get()
-            .addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document: task.getResult()) {
-                        Log.d("MainActivityOnCreate", document.getId() + " => " + document.getData());
-                        Log.d("MainActivityOnCreate", (String) document.getData().get("name"));
-                        Log.d("MainActivityOnCreate", String.valueOf(document.getData().get("price")));
-                        productList.add(new Product(String.valueOf(document.getData().get("name")), Double.valueOf((Long) document.getData().get("price"))));
-                    }
-                    productAdapter.notifyDataSetChanged();
-                } else {
-                    Log.w("MainActivityOnCreate: ", "Error getting documents!", task.getException());
-                }
-            });
-
+        // -- Setup a listener for firestore db changes
+        this.setupFirebaseServices();
     }
 
     @Override
@@ -83,5 +70,26 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setupFirebaseServices() {
+        firebaseAuthService = new FirebaseAuthService();
+        firebaseAuthService.login().addOnCompleteListener(result -> {
+            // -- A successful authentication, make a recycler view listener
+            if (result.isSuccessful()) {
+                firestoreDBService = new FirestoreDBService();
+                firestoreDBService.productCollectionReference().get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        productList.addAll(firestoreDBService.getProductList(task.getResult()));
+                        productAdapter.notifyDataSetChanged();
+                    } else {
+                        Log.w(TAG, "Error getting documents!", task.getException());
+                    }
+                });
+            // -- Authenticated failed, simply log the error stack
+            } else {
+                Log.w(TAG, "Error signing in!", result.getException());
+            }
+        });
     }
 }
